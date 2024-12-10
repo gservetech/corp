@@ -1,0 +1,85 @@
+/* FinanceBoxes.module.css */
+.finance-box-container {
+  display: flex;
+  flex-wrap: wrap; /* Adjust layout for multiple boxes */
+  gap: 20px; /* Space between boxes */
+  justify-content: center; /* Center-align boxes */
+  padding: 20px; /* Add padding around the container */
+}
+
+.finance-box {
+  width: 180px; /* Set the width of each box */
+  height: 120px; /* Set the height of each box */
+  background: url("/icons/wedding_hall_bg.png") no-repeat center top,
+    /* Image in the top 60% */
+      linear-gradient(to bottom, transparent 60%, #772953 40%); /* Color in the bottom 40% */
+  background-size: 100% 60%, 100% 100%; /* Image covers 60%, gradient covers entire box */
+  background-repeat: no-repeat; /* Prevent repeating the image or gradient */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; /* Align content to the bottom (in the colored area) */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  text-align: center;
+  color: #fff; /* Ensure text is readable */
+  padding: 10px;
+  position: relative; /* Allow further layering */
+  overflow: hidden; /* Prevent content overflow */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth scaling effect */
+  text-decoration: none; /* Remove underline for links */
+}
+
+/* Specific backgrounds for each box */
+.finance-box.cameramen {
+  background: url("/icons/cameraman.jpg") no-repeat center top,
+    linear-gradient(to bottom, transparent 60%, #772953 40%);
+  background-size: 100% 60%, 100% 100%; /* Image covers 60%, gradient covers entire box */
+  background-repeat: no-repeat; /* Prevent repeating the image or gradient */
+}
+
+.finance-box.food-choices {
+  background: url("/icons/food-background.jpg") no-repeat center top,
+    linear-gradient(to bottom, transparent 60%, #772953 40%);
+  background-size: 100% 60%, 100% 100%; /* Image covers 60%, gradient covers entire box */
+  background-repeat: no-repeat; /* Prevent repeating the image or gradient */
+}
+
+.finance-box.album {
+  background: url("/icons/album.png") no-repeat center top,
+    linear-gradient(to bottom, transparent 60%, #772953 40%);
+  background-size: 100% 60%, 100% 100%; /* Image covers 60%, gradient covers entire box */
+  background-repeat: no-repeat; /* Prevent repeating the image or gradient */
+}
+
+.finance-box:hover {
+  transform: scale(1.05); /* Slightly enlarge the box */
+  cursor: pointer; /* Change cursor to a pointer to indicate interactivity */
+}
+
+/* Add selected styling */
+.finance-box.selected {
+  border: 3px solid #ffd700; /* Gold border for selection */
+  background-color: rgba(119, 41, 83, 0.8); /* Slightly darker background */
+  transform: scale(1.1); /* Enlarge selected box */
+  transition: all 0.3s ease; /* Smooth transition for selected effect */
+}
+
+.icon {
+  font-size: 2rem; /* Adjust icon size */
+  margin-bottom: 10px; /* Adjust spacing */
+}
+
+.finance-box h3 {
+  font-size: 1rem; /* Adjust font size */
+  color: #fff; /* Ensure text contrast */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for readability */
+  font-weight: bold; /* Bold for emphasis */
+  margin: 5px 0; /* Adjust spacing */
+  text-transform: uppercase; /* Optional: Make text uppercase */
+  letter-spacing: 1.5px; /* Add spacing between letters */
+  z-index: 2; /* Ensure it stays above the background */
+  position: relative; /* Layering for styling */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+}
