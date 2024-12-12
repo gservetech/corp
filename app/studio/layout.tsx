@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 
-
 export const metadata: Metadata = {
     title: "Ecommerce WebSite for Shoppers",
     description: "Ecommerce WebSite for Educational purposes",
