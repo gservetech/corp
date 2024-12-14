@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+
 import "../globals.css";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 import Footer from "@/components/Footer";
+import localFont  from "next/font/local";
+import { Toaster } from 'react-hot-toast';
 
-const geistSans = Geist({
-  
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const poppins = localFont({
+  src: "../fonts/Poppins.woff2",
+  variable: "--font-poppins",
+  weight: "400",
+  preload: false,
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Ecommerce WebSite for Shoppers",
@@ -29,12 +28,13 @@ export default function RootLayout({
   return (
     <ClerkProvider dynamic>
       <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+        <body className={`${poppins.variable}  antialiased`}>
           <Header />
           {children}
           <Footer />
+          <Toaster position="bottom-right" toastOptions={{style:{
+            background:'#000000', color:"#FFFFFF"
+          }}}/>
         </body>
       </html>
     </ClerkProvider>
