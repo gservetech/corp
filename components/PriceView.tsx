@@ -1,3 +1,4 @@
+import { twMerge } from "tailwind-merge";
 import PriceFormatter from "./PriceFormatter";
 
 interface Props {
@@ -6,18 +7,15 @@ interface Props {
   className?: string;
   label?: string;
 }
-
 const PriceView = ({ price, discount, label, className }: Props) => {
-  console.log(className);
   return (
-   
     <div className="flex items-center justify-between gap-5">
-      <div className="flex items-center gab-2">
-        <PriceFormatter amount={price} />
+      <div className="flex items-center gap-2">
+        <PriceFormatter amount={price} className={className} />
         {price && discount && (
           <PriceFormatter
-            amount={price + (discount * 2) / 100}
-            className="text-xs font-medium line-through"
+            amount={price + (discount * price) / 100}
+            className={twMerge("line-through text-xs font-medium", className)}
           />
         )}
       </div>

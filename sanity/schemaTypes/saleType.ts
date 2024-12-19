@@ -1,10 +1,11 @@
-import { TagIcon } from "@sanity/icons"; // Ensure this package is installed and available
-import { defineField, defineType } from "sanity"; // Ensure sanity is installed and properly set up
-export const saleType = defineType({
+import { TagIcon } from "@sanity/icons";
+import { defineField, defineType } from "sanity";
+
+export const salesType = defineType({
   name: "sale",
   title: "Sale",
   type: "document",
-  icon: TagIcon, // Optional, ensure `TagIcon` is imported correctly
+  icon: TagIcon,
   fields: [
     defineField({
       name: "title",
@@ -14,7 +15,7 @@ export const saleType = defineType({
     defineField({
       name: "description",
       title: "Sale Description",
-      type: "string",
+      type: "text",
     }),
     defineField({
       name: "badge",
@@ -57,7 +58,6 @@ export const saleType = defineType({
       options: {
         hotspot: true,
       },
-      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
@@ -72,7 +72,7 @@ export const saleType = defineType({
       const status = isActive ? "Active" : "Inactive";
       return {
         title,
-        subtitle: `${discountAmount}% off - code: ${couponCode} - ${status}`,
+        subtitle: `${discountAmount}% off - Code: ${couponCode} - ${status}`,
       };
     },
   },

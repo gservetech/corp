@@ -1,8 +1,16 @@
 import { Category } from "@/sanity.types";
-
-function Categories({ categories }: { categories: Category[] }) {
-  console.log(categories)
-  return <div>Categories</div>;
+import React from "react";
+import CategorySelector from "./ui/category-selector";
+interface Props {
+  categories: Category[];
 }
+
+const Categories = ({ categories }: Props) => {
+  return (
+    <div className="py-5">
+      <CategorySelector categories={categories} />
+    </div>
+  );
+};
 
 export default Categories;

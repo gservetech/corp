@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -56,6 +61,7 @@
     --chart-5: 340 75% 55%;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
@@ -67,7 +73,10 @@
     @apply duration-300 ease-in-out transition-all cursor-pointer;
   }
 }
-
 body {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-poppins), sans-serif; /* Fallback to sans-serif */
 }
+
+/* h2 {
+  font-family: var(--font-geist-mono);
+} */
