@@ -11,7 +11,8 @@ const Footer = () => {
           <p className="text-gray-500">
             Copyright © 2024{" "}
             <span className="text-darkBlue font-semibold">GServeTech</span> all
-            rights reserved.
+            rights reserved. <span className="text-darkBlue font-semibold">📞 416-635-0502</span>{" "}
+            <span className="text-darkBlue font-semibold">✉️ GServeTech@gmail.com</span>
           </p>
           <Image src={payment} alt="payment" className="w-64 object-cover" />
         </footer>

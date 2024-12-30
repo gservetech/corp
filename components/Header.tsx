@@ -20,12 +20,22 @@ const Header = async () => {
   }
 
   return (
-    <div className="bg-white sticky top-0 z-50 border-b border-b-gray-200 py-1">
+    <div className="bg-white sticky top-0 z-50 border-b border-b-gray-200 py-0.5">
       <Container>
-        <header className="flex gap-2 flex-wrap justify-between items-center py-2">
+        <header className="flex gap-2 flex-wrap justify-between items-center py-1">
+          {/* Logo */}
           <Link href={"/"}>
-            <Image src={logo} alt="logo" className="w-24" priority />
+            <Image
+              src={logo}
+              alt="logo"
+              width={80} // Explicitly set width
+              height={80} // Explicitly set height
+              priority
+              className="object-contain" // Ensures the logo fits within the dimensions
+            />
           </Link>
+
+          {/* Search Form */}
           <Form
             action="/search"
             className="w-full sm:w-auto sm:flex-1 sm:mx-4 sm:mt-0"
@@ -34,21 +44,24 @@ const Header = async () => {
               type="text"
               name="query"
               placeholder="Search for products"
-              className="bg-gray-50 text-gray-800 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 border border-gray-200 w-full max-w-4xl rounded-md hoverEffect"
+              className="bg-gray-50 text-gray-800 px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 border border-gray-200 w-full max-w-4xl rounded-md hoverEffect"
             />
           </Form>
-          <div className="flex items-center space-x-4 sm:mt-0 flex-1 sm:flex-none">
+
+          {/* Right Section */}
+          <div className="flex items-center space-x-3 sm:mt-0 flex-1 sm:flex-none">
             <CartIcon />
+
             {/* User icons */}
             <ClerkLoaded>
               <SignedIn>
                 <Link
                   href={"/orders"}
-                  className="flex items-center text-sm gap-2 border border-gray-200 px-2 py-1 rounded-md shadow-md hover:shadow-none hoverEffect"
+                  className="flex items-center text-xs gap-1 border border-gray-200 px-2 py-1 rounded-md shadow-md hover:shadow-none hoverEffect"
                 >
-                  <BsBasket className="text-2xl text-darkBlue" />
+                  <BsBasket className="text-xl text-darkBlue" />
                   <div className="flex flex-col">
-                    <p className="text-xs">
+                    <p className="text-[10px]">
                       <span className="font-semibold">
                         {orders && orders?.length > 0 ? orders?.length : 0}
                       </span>{" "}
@@ -60,19 +73,19 @@ const Header = async () => {
               </SignedIn>
 
               {user ? (
-                <div className="flex items-center text-sm gap-2 border border-gray-200 px-2 py-1 rounded-md shadow-md hover:shadow-none hoverEffect">
+                <div className="flex items-center text-xs gap-1 border border-gray-200 px-2 py-1 rounded-md shadow-md hover:shadow-none hoverEffect">
                   <UserButton />
-                  <div className="text-xs">
+                  <div className="text-[10px]">
                     <p className="text-gray-400">Welcome Back</p>
                     <p className="font-bold">{user?.fullName}</p>
                   </div>
                 </div>
               ) : (
                 <SignInButton mode="modal">
-                  <div className="flex items-center text-sm gap-2 border border-gray-200 px-2 py-1 rounded-md shadow-md cursor-pointer hover:shadow-none hoverEffect">
-                    <FiUser className="text-2xl text-darkBlue" />
+                  <div className="flex items-center text-xs gap-1 border border-gray-200 px-2 py-1 rounded-md shadow-md cursor-pointer hover:shadow-none hoverEffect">
+                    <FiUser className="text-xl text-darkBlue" />
                     <div className="flex flex-col">
-                      <p className="text-xs">Account</p>
+                      <p className="text-[10px]">Account</p>
                       <p className="font-semibold">Login</p>
                     </div>
                   </div>

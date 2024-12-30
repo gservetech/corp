@@ -30,6 +30,13 @@ export default async function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <head>
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8558872400858376"
+            crossOrigin="anonymous"
+          ></script>
+        </head>
         <body className={`${poppins.variable} antialiased`}>
           {(await draftMode()).isEnabled && (
             <>
